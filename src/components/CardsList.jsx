@@ -1,10 +1,10 @@
 import Cards from "./Cards";
 
-const CardsList = ({element}) => {
+const CardsList = ({elements}) => {
     return (
         <div className="CardsList">
-            {element.map((element) => {
-                return <Cards />
+            {elements.map((element) => {
+                return <Cards name={element.name} key={element.name}/>
             })}
         </div>
     )
