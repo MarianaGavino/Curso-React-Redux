@@ -5,3 +5,9 @@ export const getElements = () => {
     .then(res => res.data.results)
     .catch(err => console.log(err));
 }
+
+export const getElementDetails = (element) => {
+    return axios.get(element.url)
+    .then(res => res.data)
+    .catch(err => console.log(err));
+}

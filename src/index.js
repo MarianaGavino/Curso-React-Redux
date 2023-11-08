@@ -4,18 +4,20 @@ import './index.css';
 import App from './App';
 import { elementsReducer } from './reducers/elements';
 import { Provider } from 'react-redux';
-import { legacy_createStore as createStore} from 'redux';
+import { applyMiddleware, compose, legacy_createStore as createStore} from 'redux';
+import { logger } from './middleware'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const store = createStore(elementsReducer);
+const composedEnhacers = compose(applyMiddleware(logger));
+
+const store = createStore(elementsReducer, composedEnhacers);
 
 root.render(
   <React.StrictMode>
     <Provider store={store}>
       <App />
     </Provider>
-   
   </React.StrictMode>
 );
 
