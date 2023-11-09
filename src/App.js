@@ -3,8 +3,8 @@ import { Col } from 'antd';
 import Searched from './components/Searcher';
 import CardsList from './components/CardsList';
 import { useEffect } from 'react';
-import { getElements, getElementDetails } from './api';
-import { setElements } from './actions';
+import { getElements } from './api';
+import { getElementsWithDetails } from './actions';
 import { useDispatch, useSelector } from 'react-redux';
 
 function App() {
@@ -17,15 +17,9 @@ function App() {
  
   useEffect(() => {
     const fecthElements = async() => {
-      const elementsRes = await getElements();
-      const elementsDetailed = await Promise.all(elementsRes.map(element =>
-        getElementDetails(element)));
-      
-        dispatch(setElements(elementsDetailed))
-
+      const elementsRes = await getElements(); 
+        dispatch(getElementsWithDetails(elementsRes));
     };
-
-
 
     fecthElements();
   }, [dispatch]);
