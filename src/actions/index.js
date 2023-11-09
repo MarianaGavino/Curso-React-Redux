@@ -1,15 +1,19 @@
 import { getElementDetails } from "../api";
-import { SET_ELEMENTS } from "./types";
+import { SET_ELEMENTS, SET_LOADING } from "./types";
+
 
 // función que retorna un action (obj que describe el cambio que va a pasar)
 export const setElements = (payload) =>  ({
     type: SET_ELEMENTS,
-    payload,
-})
+    payload,        // payload: nuevos elements. Dato que queremos darle al store para actulizar el estado.
+});
 
-/*payload: nuevos elements 
-    Dato que queremos darle al store para actulizar el estado.
-*/
+export const setLoading = (payload) => ({ //El payload nos va a decir si está en true o false.
+    type: SET_LOADING,
+    payload,
+});
+
+
 
 //Redux Thunk
 //Función que retorna otra función
