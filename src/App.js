@@ -5,14 +5,15 @@ import CardsList from './components/CardsList';
 import { useEffect } from 'react';
 import { getElements } from './api';
 import { getElementsWithDetails, setLoading } from './actions';
-import { useDispatch, useSelector } from 'react-redux';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 
 function App() {
 
-  //Permite extraer la data del estado
-  // será llamado cada vez que se haga dispatch de una acción
-  const elements = useSelector((state) => state.get('elements')).toJS();
-  const loading = useSelector((state) => state.get('loading'));
+  //Permite extraer la data del estado. Será llamado cada vez que se haga dispatch de una acción
+  const elements = useSelector((state) => 
+    state.getIn(['data', 'elements'], shallowEqual) //Evita re-renders inecesarios, cuando solo obtenemos un valor.
+  ).toJS();
+  const loading = useSelector((state) => state.getIn(['ui', 'loading']));
   //Dispara acciones
   const dispatch = useDispatch();
  

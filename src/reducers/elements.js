@@ -1,9 +1,8 @@
 import { fromJS } from "immutable";
-import { SET_ELEMENTS, SET_FAVORITE, SET_LOADING } from "../actions/types";
+import { SET_ELEMENTS, SET_FAVORITE } from "../actions/types";
 
 const initialState = fromJS({
   elements: [],
-  loading: false,
 });
 
 // Encargado de saber como se va a actulizar el estado.
@@ -32,9 +31,6 @@ export const elementsReducer = (state = initialState, action) => {
         !isFavorite
       );
 
-      case SET_LOADING:
-        //  return {...state, loading: action.payload };
-        return state.setIn(["loading"], action.payload);
     default:
       return state;
   }
