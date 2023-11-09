@@ -1,5 +1,7 @@
 import { getElementDetails } from "../api";
-import { SET_ELEMENTS, SET_LOADING } from "./types";
+import { SET_ELEMENTS, 
+        SET_FAVORITE, 
+        SET_LOADING } from "./types";
 
 
 // función que retorna un action (obj que describe el cambio que va a pasar)
@@ -12,6 +14,11 @@ export const setLoading = (payload) => ({ //El payload nos va a decir si está e
     type: SET_LOADING,
     payload,
 });
+
+export const setFavorite = (payload) => ({
+    type: SET_FAVORITE,
+    payload,
+})
 
 
 
