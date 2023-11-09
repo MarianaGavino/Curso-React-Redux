@@ -11,8 +11,8 @@ function App() {
 
   //Permite extraer la data del estado
   // será llamado cada vez que se haga dispatch de una acción
-  const elements = useSelector((state) => state.elements);
-  const loading = useSelector((state) => state.loading);
+  const elements = useSelector((state) => state.get('elements')).toJS();
+  const loading = useSelector((state) => state.get('loading'));
   //Dispara acciones
   const dispatch = useDispatch();
  

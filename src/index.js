@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { elementsReducer } from './reducers/elements';
 import { Provider } from 'react-redux';
 import { applyMiddleware, compose, legacy_createStore as createStore} from 'redux';
 import { logger } from './middleware'
 import thunk from 'redux-thunk';
+import { elementsReducer } from './reducers/elements';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
