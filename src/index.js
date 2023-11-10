@@ -11,6 +11,7 @@ import rootReducer from './reducers/rootReducer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
+
 const composedEnhacers = compose(applyMiddleware(thunk,logger));
 
 const store = createStore(rootReducer, composedEnhacers);

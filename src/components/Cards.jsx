@@ -3,7 +3,8 @@ import Meta from "antd/lib/card/Meta";
 import './CardsList.css';
 import StarButton from "./StarButton";
 import { useDispatch } from "react-redux";
-import { setFavorite } from "../actions";
+import { setFavorite } from "../slices/dataSlice";
+//import { setFavorite } from "../actions";
 
 const Cards = ({name, image, types, id, favorite }) => {
   const dispatch = useDispatch();
